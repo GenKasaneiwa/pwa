@@ -7,7 +7,7 @@
 var CACHE_NAME = "cache-v1";
 
 //キャッシュに入れるリソースのパス
-var urlsToCache = ["./", "./manifest.json", "./next.html"];
+var urlsToCache = ["./", "./manifest.json", "./next.html", "./img"];
 
 //インストール状態のイベント処理
 self.addEventListener("install", function (event) {
