@@ -3,40 +3,43 @@
 //サイトのhostが、httpやipadreess直指定の場合はserviceWorkerがいなくなります。
 //localhostの場合は、httpでもよい。
 
-var CACHE_NAME = 'cache-v1';
-//ここでは、サービスワーカーがサイトに登録(インストール)されるタイミングで、同時に必要なリソースをキャッシュしてオフラインでも使えるようにしていきます。
-self.addEventListener('install', function(event) {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-    .then(function(cache) {   
-        return cache.addAll('./*');
-    })
-  );
-  console.log('[ServiceWorker] Install');
-});
+//キャッシュ名
+var CACHE_NAME = "cache-v1";
 
-//サービスワーカーがインストールされて有効化されたタイミングで、キャッシュの更新がないかを確認・処理していきましょう。
-self.addEventListener('activate', function(event) {  
-  event.waitUntil(  
-    caches.keys().then(function(cache) {
-      cache.map(function(name) {
-        if(CACHE_NAME !== name) caches.delete(name);
+//キャッシュに入れるリソースのパス
+var urlsToCache = ["/", "manifest.json", "./next.html"];
+
+//インストール状態のイベント処理
+self.addEventListener("install", function (event) {
+   event.waitUntil(
+      //キャッシュの中に必要なリソースを格納する
+      caches.open(CACHE_NAME).then(function (cache) {
+         return cache.addAll(urlsToCache);
       })
-    })  
-  );
-  console.log('[ServiceWorker] Activate');
-});  
-
-//ここではページが読み込まれた時に、キャッシュに保存されているリソースがある場合はそれを使って処理できるように記述します。オフライン対応。
-self.addEventListener('fetch', function(event) {
-  event.respondWith( 
-    caches.match(event.request).then(function(res) {
-        if(res) return res;
-      
-        return fetch(event.request);
-    }) 
-  );
+   );
 });
 
-  // // 現状では、この処理を書かないとService Workerが有効と判定されないようです
-  // self.addEventListener('fetch', function(event) {});
+//有効化状態のイベント処理
+self.addEventListener("activate", function (event) {
+   event.waitUntil(
+      //現在のキャッシュをすべて取得する
+      caches.keys().then(function (cache) {
+         //新しいキャッシュ以外は削除する
+         cache.map(function (name) {
+            if (CACHE_NAME !== name) caches.delete(name);
+         });
+      })
+   );
+});
+
+//リクエスト取得状態のイベント処理
+self.addEventListener("fetch", function (event) {
+   event.respondWith(
+      //リクエストに応じたリソースがキャッシュにあればそれを使う
+      caches.match(event.request).then(function (res) {
+         if (res) return res;
+
+         return fetch(event.request);
+      })
+   );
+});
