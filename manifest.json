@@ -1,7 +1,7 @@
 {
    "name": "テストです",
    "short_name": "テスト",
-   "start_url": "./n",
+   "start_url": "https://genkasaneiwa.github.io/pwa/",
    "display": "standalone",
    "orientation": "any",
    "background_color": "#fff",
