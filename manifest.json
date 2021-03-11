@@ -1,7 +1,7 @@
 {
    "name": "テストです",
    "short_name": "テスト",
-   "start_url": "./?utm_source=homescreen",
+   "start_url": "./n",
    "display": "standalone",
    "orientation": "any",
    "background_color": "#fff",
