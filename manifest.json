@@ -1,0 +1,18 @@
+{
+   "name": "テストです",
+   "short_name": "テスト",
+   "start_url": "/?utm_source=web_app_manifest",
+   "display": "standalone",
+   "orientation": "any",
+   "background_color": "#fff",
+   "theme_color": "#0aa574",
+   "icons": [{
+    "src": "https://umamichi.github.io/pwa-sample/icon-256.png",
+    "sizes": "256x256",
+    "type": "image/png"
+  },{
+    "src": "https://umamichi.github.io/pwa-sample/icon-192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }]
+ }
