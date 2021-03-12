@@ -5,7 +5,7 @@
 //iOSではオフラインデータを50Mbしか保存できないという厳しい制限がある
 
 //キャッシュ名
-var CACHE_NAME = "cache-v1";
+var CACHE_NAME = "cache-v2";
 
 //キャッシュに入れるリソースのパス
 var urlsToCache = ["./", "./manifest.json", "./next.html", "./img"];
