@@ -2,6 +2,7 @@
 //PWAはhttpsが必須条件です。
 //サイトのhostが、httpやipadreess直指定の場合はserviceWorkerがいなくなります。
 //localhostの場合は、httpでもよい。
+//iOSではオフラインデータを50Mbしか保存できないという厳しい制限がある
 
 //キャッシュ名
 var CACHE_NAME = "cache-v1";
