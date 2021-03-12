@@ -52,7 +52,9 @@
             <img src="./img/test.jpg" style="width: 100%;">
          </a>
            </div>
-           <div class="swiper-slide">国内</div>
+           <div class="swiper-slide">
+            <img src="./img/cat.jpg" style="width: 100%;">
+           </div>
            <div class="swiper-slide">エンタメ</div>
            <div class="swiper-slide">スポーツ</div>
            <div class="swiper-slide">経済</div>
@@ -109,7 +111,14 @@
      autoHeight: true,
      thumbs: {
        swiper: galleryThumbs
-     }
+     },
+     //lazyload設定
+     lazy: true,
+     preloadImages: false,
+lazy: {
+  loadPrevNext: true
+}
+
  });
  </script>
 
