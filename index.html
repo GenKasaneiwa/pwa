@@ -54,9 +54,12 @@
          </a>
            </div>
            <div class="swiper-slide">
-            <img src="./img/cat.jpg" style="width: 100%;">
+            <img class="swiper-lazy" data-src="./img/cat.jpg" style="width: 100%;">
+            <div class="swiper-lazy-preloader"></div>
            </div>
            <div class="swiper-slide">エンタメ</div>
+           <img class="swiper-lazy" data-src="./img/bear.jpg" style="width: 100%;">
+           <div class="swiper-lazy-preloader"></div>
            <div class="swiper-slide">スポーツ</div>
            <div class="swiper-slide">経済</div>
          </div>
@@ -117,9 +120,14 @@
      //lazyload設定
      lazy: true,
      preloadImages: false,
-lazy: {
-  loadPrevNext: true
-}
+     lazy: {
+        //  tell swiper to load images before they appear
+        //次のスライド手前で画像読み込み開始
+        loadPrevNext: true,
+        // amount of images to load
+        // さらにさかのぼってloadingする場合 指定する。
+      	// loadPrevNextAmount: 2,
+      },
 
  });
  </script>
