@@ -45,5 +45,34 @@ self.addEventListener("fetch", function (event) {
    );
 });
 
-
+ // fetchAPI用 返されたBodyをjsonにしてPromise.resolve()する
+ var handleResponse = function (response) {
+   return response.json()
+     .then(function (json) {
+       if (response.ok) {
+         return json;
+       } else {
+         return Promise.reject(response);
+       }
+     });
+ };
+ 
+ function getJsonData() {
+   var req_bnr = new Request("./test.json", {
+     method: "get"
+   });
+   fetch(req_bnr)
+     .then(handleResponse)
+     .then(function (json) {
+       var items = [];
+       $.each(data, function (key, val) {
+         items.push("<li id='" + key + "'>" + val + "</li>");
+       });
+ 
+       $("<ul/>", {
+         "class": "my-new-list",
+         html: items.join("")
+       }).appendTo("body");
+     })
+ };
 
