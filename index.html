@@ -29,107 +29,141 @@
    </head>
    <body>
       <div class="container">
-
          <!-- メニュー部分 -->
          <div class="swiper-container tab-menu">
-           <div class="swiper-wrapper">
-           <div class="swiper-slide">トップ</div>
-           <div class="swiper-slide">ランキング</div>
-           <div class="swiper-slide">国内</div>
-           <div class="swiper-slide">エンタメ</div>
-           <div class="swiper-slide">スポーツ</div>
-           <div class="swiper-slide">経済</div>
+            <div class="swiper-wrapper">
+               <div class="swiper-slide">トップ</div>
+               <div class="swiper-slide">ランキング</div>
+               <div class="swiper-slide">国内</div>
+               <div class="swiper-slide">エンタメ</div>
+               <div class="swiper-slide">スポーツ</div>
+               <div class="swiper-slide">経済</div>
+            </div>
+            <!-- コンテンツ部分 -->
+            <div class="swiper-container tab-contents">
+               <div class="swiper-wrapper">
+                  <div class="swiper-slide" data-history="slide1">
+                     <a href="./next.html">
+                        <img src="./img/bird.jpg" style="width: 100%" />
+                     </a>
+                  </div>
+
+                  <div class="swiper-slide" data-history="slide2">
+                     <a href="./next.html">
+                        <img src="./img/test.jpg" style="width: 100%" />
+                     </a>
+                  </div>
+
+                  <div class="swiper-slide" data-history="slide3">
+                     <img
+                        class="swiper-lazy"
+                        data-src="./img/cat.jpg"
+                        style="width: 100%"
+                     />
+                     <!-- <div class="swiper-lazy-preloader"></div> -->
+                  </div>
+
+                  <div class="swiper-slide" data-history="slide4">
+                     <img
+                        class="swiper-lazy"
+                        data-src="./img/bear.jpg"
+                        style="width: 100%"
+                     />
+                  </div>
+
+                  <div class="swiper-slide" data-history="slide5">
+                     <img
+                        class="swiper-lazy"
+                        data-src="./img/bear.jpg"
+                        style="width: 100%"
+                     />
+                  </div>
+
+                  <div class="swiper-slide" data-history="slide6">
+                     <img
+                        class="swiper-lazy"
+                        data-src="./img/bear.jpg"
+                        style="width: 100%"
+                     />
+                  </div>
+               </div>
+            </div>
          </div>
-         <!-- コンテンツ部分 -->
-         <div class="swiper-container tab-contents">
-           <div class="swiper-wrapper">
-           <div class="swiper-slide">
-              <a href="./next.html">
-            <img src="./img/bird.jpg" style="width: 100%;">
-         </a>
-           </div>
-           <div class="swiper-slide">
-            <a href="./next.html">
-            <img src="./img/test.jpg" style="width: 100%;">
-         </a>
-           </div>
-           <div class="swiper-slide">
-            <img class="swiper-lazy" data-src="./img/cat.jpg" style="width: 100%;">
-            <!-- <div class="swiper-lazy-preloader"></div> -->
-           </div>
-           <div class="swiper-slide">
-           <img class="swiper-lazy" data-src="./img/bear.jpg" style="width: 100%;">
-         </div>
-           <div class="swiper-slide">スポーツ</div>
-           <div class="swiper-slide">経済</div>
-         </div>
-         
-         </div>
+
+         <p>PWAのtestです</p>
+         <a href="./next.html">リンクです</a>
       </div>
 
-      <p>PWAのtestです</p>
-      <a href="./next.html">リンクです</a>
-      
-
       <style>
-        .container {
-   max-width:1200px;
-   width: 100%;
-   margin: 30px auto;
-   /* border: 1px solid #CCC; */
-}
-.swiper-container {
-   margin: 0 auto 30px;
-   width: 100%;
-}
-.tab-menu {
-   /* border-bottom: 3px solid #3bda9d; */
-   cursor: pointer;
-}
-.tab-menu .swiper-slide {
-   width: auto;
-   padding: 10px 0;
-}
-.tab-contents {
-   margin: 30px auto;
-}
-.swiper-slide-thumb-active {
-   border-bottom: 2px solid #3bda9d;
-   color: #3bda9d !important;
-   font-weight: bold;
-}
+         .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 30px auto;
+            /* border: 1px solid #CCC; */
+         }
+         .swiper-container {
+            margin: 0 auto 30px;
+            width: 100%;
+         }
+         .tab-menu {
+            /* border-bottom: 3px solid #3bda9d; */
+            cursor: pointer;
+         }
+         .tab-menu .swiper-slide {
+            width: auto;
+            padding: 10px 0;
+         }
+         .tab-contents {
+            margin: 30px auto;
+         }
+         .swiper-slide-thumb-active {
+            border-bottom: 2px solid #3bda9d;
+            color: #3bda9d !important;
+            font-weight: bold;
+         }
       </style>
 
-<script>
-   var galleryThumbs = new Swiper('.tab-menu', {
-     spaceBetween: 20,
-     slidesPerView: 'auto',
-     watchSlidesVisibility: true,
-     watchSlidesProgress: true,
-     slideActiveClass: 'swiper-slide-active'
-   });
-   galleryThumbs.on('tap', function () {
-     var current = galleryTop.activeIndex;
-     galleryThumbs.slideTo(current, 500, true);
-   });
-   var galleryTop = new Swiper('.tab-contents', {
-     autoHeight: true,
-     thumbs: {
-       swiper: galleryThumbs
-     },
-     //lazyload設定
-     lazy: true,
-     preloadImages: false,
-     lazy: {
-        //  tell swiper to load images before they appear
-        //次のスライド手前で画像読み込み開始
-        loadPrevNext: true,
-        // amount of images to load
-        // さらにさかのぼってloadingする場合 指定する。
-      	loadPrevNextAmount: 2,
-      },
+      <script>
+         var galleryThumbs = new Swiper(".tab-menu", {
+            spaceBetween: 20,
+            slidesPerView: "auto",
+            watchSlidesVisibility: true,
+            watchSlidesProgress: true,
+            slideActiveClass: "swiper-slide-active",
+         });
 
- });
- </script>
+         galleryThumbs.on("tap", function () {
+            var current = galleryTop.activeIndex;
+            galleryThumbs.slideTo(current, 500, true);
+         });
+
+         var galleryTop = new Swiper(".tab-contents", {
+            autoHeight: true,
+            thumbs: {
+               swiper: galleryThumbs,
+            },
+
+            // hashNavigation: {
+            //    watchState: true,
+            //    replaceState: true,
+            // },
+            history: {
+               replaceState: true,
+               key: "slide",
+            },
+
+            //lazyload設定
+            lazy: true,
+            preloadImages: false,
+            lazy: {
+               //  tell swiper to load images before they appear
+               //次のスライド手前で画像読み込み開始
+               loadPrevNext: true,
+               // amount of images to load
+               // さらにさかのぼってloadingする場合 指定する。
+               loadPrevNextAmount: 2,
+            },
+         });
+      </script>
    </body>
 </html>

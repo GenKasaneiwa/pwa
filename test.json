@@ -1,7 +1,14 @@
 {
+<<<<<<< HEAD
    "path":[
       "./index.html",
       "./next.html",
       "./img/bird.jpg"
    ]
 }
+=======
+   "id": "1",
+   "name": "taro",
+   "email": "taro@test.com"
+ }
+>>>>>>> 85b5fb9db9dfc7cb39197d99fe9a050b9f831ddb
