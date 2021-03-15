@@ -144,13 +144,16 @@
             },
 
             // hashNavigation: {
+            // data-hashの値からslideにhash追加
             //    watchState: true,
             //    replaceState: true,
             // },
 
             history: {
+               //data-historyの値からslideにurl追加
                replaceState: true,
-               key: "",
+               //ここに例えばhogeといれると /hoge/slide1とディレクトリが追加される
+               key: "hoge",
             },
 
             //lazyload設定
