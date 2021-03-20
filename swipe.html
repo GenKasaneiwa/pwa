@@ -1,32 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
    <head>
-      <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>swiep test</title>
-
-      <link
-         rel="stylesheet"
-         href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css"
-      />
-      <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-      <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
-
-      <link
-         rel="stylesheet"
-         type="text/css"
-         href="./js/jquery.mobile.pagination.css"
-      />
+      <meta charset="utf8" />
+      <title>swipe</title>
       <script
          type="text/javascript"
-         src="./js/jquery.mobile.pagination.js"
+         src="https://code.jquery.com/jquery-2.0.3.min.js"
       ></script>
+      <script
+         type="text/javascript"
+         src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"
+      ></script>
+
+      <script>
+         $(function () {
+            $("#myimg").on("swipe", mySwipeHandler);
+            function mySwipeHandler(evt) {
+               alert("#myimg swiped.");
+            }
+         });
+      </script>
    </head>
    <body>
-      <ul data-role="pagination">
-         <li class="ui-pagination-prev"><a href="./index.html">前</a></li>
-         <li class="ui-pagination-next"><a href="./next.html">次</a></li>
-      </ul>
+      <img
+         src="https://2.bp.blogspot.com/-hvxUlVBfZUI/XG4Ga7pkzxI/AAAAAAABRrE/Q2vhHjh76T8tFTyZ7D8fFE3MCQMqiKIVgCLcBGAs/s450/champion_belt_boxing_man.png"
+         id="myimg"
+         width="50%"
+      />
    </body>
 </html>
